@@ -30,5 +30,11 @@
     <a href="/form_action">Form action</a>
     <a href="/default_form">Default Form</a>
     <a href="/name_form">Named Form</a>
+    <hr />
+    <h1 class="text-xl font-bold flex justify-center items-center">
+      error
+    </h1>
+    <a href="/error">error</a>
+    <hr />
   </div>
 </div>
