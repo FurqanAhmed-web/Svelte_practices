@@ -1,15 +1,18 @@
 // @ts-nocheck
 import { error } from "@sveltejs/kit";
 
-export function load({parent}) {
-  const data = parent()
-  console.log(data);
-  if (data) {
-    return {
-      layer: data.layer + 1,
-      value: data.value,
-      title: "Hello world!"
-    };
+export async function load({ parent }) {
+  const data = await parent();
+
+  if (data.layer === 2) {
+    return error(404, "Not found");
   }
-  error(404, "Not found");
+
+  const { value, layer } = data;
+  console.log(value);
+  return {
+    layer: layer + 1,
+    value: value,
+    title: "Hello world!",
+  };
 }
